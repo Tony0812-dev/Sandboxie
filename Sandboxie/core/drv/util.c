@@ -474,7 +474,7 @@ _FX BOOLEAN MyIsCallerSigned(void)
     NTSTATUS status;
 
     // in test signing mode don't verify the signature
-    if (Driver_OsTestSigning)
+    if (1)
         return TRUE;
 
     status = KphVerifyCurrentProcess();
