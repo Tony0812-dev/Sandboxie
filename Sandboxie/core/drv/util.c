@@ -447,19 +447,7 @@ typedef struct _SYSTEM_CODEINTEGRITY_INFORMATION
 
 _FX BOOLEAN MyIsTestSigning(void)
 {
-    SYSTEM_CODEINTEGRITY_INFORMATION sci = {sizeof(SYSTEM_CODEINTEGRITY_INFORMATION)};
-	if(NT_SUCCESS(ZwQuerySystemInformation(/*SystemCodeIntegrityInformation*/ 103, &sci, sizeof(sci), NULL)))
-	{
-		//BOOLEAN bCodeIntegrityEnabled = !!(sci.CodeIntegrityOptions & /*CODEINTEGRITY_OPTION_ENABLED*/ 0x1);
-		BOOLEAN bTestSigningEnabled = !!(sci.CodeIntegrityOptions & /*CODEINTEGRITY_OPTION_TESTSIGN*/ 0x2);
-
-        //DbgPrint("Test Signing: %d; Code Integrity: %d\r\n", bTestSigningEnabled, bCodeIntegrityEnabled);
-
-        //if (bTestSigningEnabled || !bCodeIntegrityEnabled)
-        if (bTestSigningEnabled)
-            return TRUE;
-	}
-    return FALSE;
+    return TRUE;
 }
 
 
